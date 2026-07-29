@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Portfolio</title>
+  <style>
+    /* 基本スタイリング */
+    body {
+      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ヘッダー・カテゴリ切り替え */
+    .category-header {
+      margin-bottom: 30px;
+    }
+
+    .category-title {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 10px;
+      font-weight: normal;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    .nav-link {
+      background: none;
+      border: none;
+      font-size: 1.05rem;
+      font-weight: bold;
+      color: #888;
+      cursor: pointer;
+      padding: 6px 12px;
+      transition: color 0.2s, border-bottom 0.2s;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: #111;
+      border-bottom: 3px solid #111;
+    }
+
+    /* ギャラリーレイアウト */
+    .gallery-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    /* カーソルを合わせた時に枠自体が少し大きく拡大する設定 */
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+    }
+
+    /* ホバー（カーソル合わせ）時の枠の拡大演出 */
+    .card:hover {
+      transform: scale(1.05); /* 枠を5%ほど拡大 */
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* 影を深めにして浮き上がらせる */
+      z-index: 2;
+    }
+
+    .image-container {
+      width: 100%;
+      height: 240px;
+      background-color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .card-info {
+      padding: 12px 16px;
+      font-size: 0.85rem;
+      color: #666;
+      border-top: 1px solid #eee;
+      background: #fafafa;
+    }
+
+    .card-number {
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="category-header">
+    <div class="category-title">Design</div>
+    <div class="nav-links">
+      <button class="nav-link active" onclick="showCategory('all', event)">All</button>
+      <button class="nav-link" onclick="showCategory('editorial', event)">Editorial Design</button>
+      <button class="nav-link" onclick="showCategory('logo', event)">Logo Design</button>
+      <button class="nav-link" onclick="showCategory('character', event)">Character Design</button>
+    </div>
+  </div>
+
+  <div class="gallery-section" id="gallery">
+
+    <!-- Editorial Design (01〜04) -->
+    <div class="card" data-category="editorial">
+      <div class="image-container"><img src="01.jpg" alt="01"></div>
+      <div class="card-info"><span class="card-number">01.jpg</span> - Editorial Design</div>
+    </div>
+    <div class="card" data-category="editorial">
+      <div class="image-container"><img src="02.jpg" alt="02"></div>
+      <div class="card-info"><span class="card-number">02.jpg</span> - Editorial Design</div>
+    </div>
+    <div class="card" data-category="editorial">
+      <div class="image-container"><img src="03.jpg" alt="03"></div>
+      <div class="card-info"><span class="card-number">03.jpg</span> - Editorial Design</div>
+    </div>
+    <div class="card" data-category="editorial">
+      <div class="image-container"><img src="04.jpg" alt="04"></div>
+      <div class="card-info"><span class="card-number">04.jpg</span> - Editorial Design</div>
+    </div>
+
+    <!-- Logo Design (05〜09) -->
+    <div class="card" data-category="logo">
+      <div class="image-container"><img src="05.jpg" alt="05"></div>
+      <div class="card-info"><span class="card-number">05.jpg</span> - Logo Design</div>
+    </div>
+    <div class="card" data-category="logo">
+      <div class="image-container"><img src="06.jpg" alt="06"></div>
+      <div class="card-info"><span class="card-number">06.jpg</span> - Logo Design</div>
+    </div>
+    <div class="card" data-category="logo">
+      <div class="image-container"><img src="07.jpg" alt="07"></div>
+      <div class="card-info"><span class="card-number">07.jpg</span> - Logo Design</div>
+    </div>
+    <div class="card" data-category="logo">
+      <div class="image-container"><img src="08.jpg" alt="08"></div>
+      <div class="card-info"><span class="card-number">08.jpg</span> - Logo Design</div>
+    </div>
+    <div class="card" data-category="logo">
+      <div class="image-container"><img src="09.jpg" alt="09"></div>
+      <div class="card-info"><span class="card-number">09.jpg</span> - Logo Design</div>
+    </div>
+
+    <!-- Character Design (panda_01〜04) -->
+    <div class="card" data-category="character">
+      <div class="image-container"><img src="panda_01.jpg" alt="panda_01"></div>
+      <div class="card-info"><span class="card-number">panda_01.jpg</span> - Character Design</div>
+    </div>
+    <div class="card" data-category="character">
+      <div class="image-container"><img src="panda_02.jpg" alt="panda_02"></div>
+      <div class="card-info"><span class="card-number">panda_02.jpg</span> - Character Design</div>
+    </div>
+    <div class="card" data-category="character">
+      <div class="image-container"><img src="panda_03.jpg" alt="panda_03"></div>
+      <div class="card-info"><span class="card-number">panda_03.jpg</span> - Character Design</div>
+    </div>
+    <div class="card" data-category="character">
+      <div class="image-container"><img src="panda_04.jpg" alt="panda_04"></div>
+      <div class="card-info"><span class="card-number">panda_04.jpg</span> - Character Design</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // カテゴリ切り替えフィルター処理
+  function showCategory(category, e) {
+    const buttons = document.querySelectorAll('.nav-link');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    if (e) e.target.classList.add('active');
+
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      if (category === 'all' || card.getAttribute('data-category') === category) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
