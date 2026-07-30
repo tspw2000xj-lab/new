@@ -339,17 +339,18 @@
 
     .film-sprocket {
       flex-shrink: 0;
-      width: 40px;
+      width: 30px;
       height: 180px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
+    /* 画像横幅をコンパクトに調整（2つ目が見切れて見える設計） */
     .work-item {
       flex-shrink: 0;
-      width: clamp(340px, 45vw, 650px);
-      margin: 0 10px;
+      width: clamp(260px, 32vw, 500px);
+      margin: 0 8px;
       user-select: none;
     }
 
@@ -412,20 +413,20 @@
     }
 
     .work-title {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--text-dark-bg);
     }
 
     .work-category {
       font-family: var(--font-en);
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--accent);
       background: rgba(224, 122, 48, 0.1);
-      padding: 0.2rem 0.6rem;
+      padding: 0.2rem 0.5rem;
       border-radius: 3px;
     }
 
@@ -517,7 +518,7 @@
     }
 
     /* ==========================================
-       6. SKILLS SECTION
+       6. SKILLS SECTION (アクション無し)
        ========================================== */
     .skills-section {
       background-color: var(--bg-sub);
@@ -536,13 +537,7 @@
       border: 1px solid rgba(255, 255, 255, 0.05);
       padding: 2.5rem 1.8rem;
       border-radius: 4px;
-      transition: transform 0.4s ease, border-color 0.4s ease, background 0.4s ease;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(224, 122, 48, 0.3);
-      background: rgba(255, 255, 255, 0.04);
+      /* アクションなし（ホバー時の変化要素を排除） */
     }
 
     .skill-icon-wrap {
@@ -557,11 +552,6 @@
       stroke: var(--accent);
       stroke-width: 1.2px;
       fill: none;
-      transition: filter 0.3s ease;
-    }
-
-    .skill-card:hover .skill-icon {
-      filter: drop-shadow(0 0 8px rgba(224, 122, 48, 0.8));
     }
 
     .skill-title-ja {
@@ -727,6 +717,21 @@
       .skills-grid {
         grid-template-columns: 1fr 1fr;
       }
+
+      /* フィルムストリップのトラックパディングを小さくして見切らせる */
+      .filmstrip-track {
+        padding: 10px 5vw;
+      }
+
+      /* モバイルで2つ目がチラ見えする幅（72vw） */
+      .work-item {
+        width: 72vw;
+        margin: 0 6px;
+      }
+      
+      .film-sprocket {
+        width: 20px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -802,30 +807,7 @@
             </svg>
           </div>
 
-          <!-- Project 1: Design (design.html へリンク) -->
-          <article class="work-item reveal-el">
-            <a href="design.html" class="work-link">
-              <div class="work-thumb-wrapper">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80" alt="Design Project" class="work-thumb" loading="lazy">
-                <div class="work-thumb-overlay"></div>
-              </div>
-              <div class="work-info">
-                <h3 class="work-title">Design</h3>
-                <span class="work-category">Logo・Editorial Design</span>
-              </div>
-            </a>
-          </article>
-
-          <!-- Sprocket 1 -->
-          <div class="film-sprocket">
-            <svg width="20" height="150" viewBox="0 0 20 150" fill="none">
-              <rect x="2" y="10" width="16" height="24" rx="3" fill="#222" />
-              <rect x="2" y="63" width="16" height="24" rx="3" fill="#222" />
-              <rect x="2" y="116" width="16" height="24" rx="3" fill="#222" />
-            </svg>
-          </div>
-
-          <!-- Project 2: Movie (movie.html へリンク) -->
+          <!-- Project 1: Movie (movie.html へリンク) -->
           <article class="work-item reveal-el">
             <a href="movie.html" class="work-link">
               <div class="work-thumb-wrapper">
@@ -839,7 +821,7 @@
             </a>
           </article>
 
-          <!-- Sprocket 2 -->
+          <!-- Sprocket 1 -->
           <div class="film-sprocket">
             <svg width="20" height="150" viewBox="0 0 20 150" fill="none">
               <rect x="2" y="10" width="16" height="24" rx="3" fill="#222" />
@@ -848,30 +830,7 @@
             </svg>
           </div>
 
-          <!-- Project 3: Animation (animation.html へリンク) -->
-          <article class="work-item reveal-el">
-            <a href="animation.html" class="work-link">
-              <div class="work-thumb-wrapper">
-                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1000&q=80" alt="Animation Project" class="work-thumb" loading="lazy">
-                <div class="work-thumb-overlay"></div>
-              </div>
-              <div class="work-info">
-                <h3 class="work-title">Animation</h3>
-                <span class="work-category">CM etc.</span>
-              </div>
-            </a>
-          </article>
-
-          <!-- Sprocket 3 -->
-          <div class="film-sprocket">
-            <svg width="20" height="150" viewBox="0 0 20 150" fill="none">
-              <rect x="2" y="10" width="16" height="24" rx="3" fill="#222" />
-              <rect x="2" y="63" width="16" height="24" rx="3" fill="#222" />
-              <rect x="2" y="116" width="16" height="24" rx="3" fill="#222" />
-            </svg>
-          </div>
-
-          <!-- Project 4: Drone Photography (drone.html へリンク / ★ ご用意の DJI Air 3/Air 3S 写真を設定 ★) -->
+          <!-- Project 2: Drone Photography (drone.html へリンク) -->
           <article class="work-item reveal-el">
             <a href="drone.html" class="work-link">
               <div class="work-thumb-wrapper">
@@ -885,7 +844,7 @@
             </a>
           </article>
 
-          <!-- Sprocket 4 -->
+          <!-- Sprocket 2 -->
           <div class="film-sprocket">
             <svg width="20" height="150" viewBox="0 0 20 150" fill="none">
               <rect x="2" y="10" width="16" height="24" rx="3" fill="#222" />
@@ -894,7 +853,7 @@
             </svg>
           </div>
 
-          <!-- Project 5: Live Stream (livestream.html へリンク) -->
+          <!-- Project 3: Live Stream (livestream.html へリンク) -->
           <article class="work-item reveal-el">
             <a href="livestream.html" class="work-link">
               <div class="work-thumb-wrapper">
@@ -904,6 +863,52 @@
               <div class="work-info">
                 <h3 class="work-title">Live Stream</h3>
                 <span class="work-category">YouTube Live</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- Sprocket 3 -->
+          <div class="film-sprocket">
+            <svg width="20" height="150" viewBox="0 0 20 150" fill="none">
+              <rect x="2" y="10" width="16" height="24" rx="3" fill="#222" />
+              <rect x="2" y="63" width="16" height="24" rx="3" fill="#222" />
+              <rect x="2" y="116" width="16" height="24" rx="3" fill="#222" />
+            </svg>
+          </div>
+
+          <!-- Project 4: Animation (animation.html へリンク) -->
+          <article class="work-item reveal-el">
+            <a href="animation.html" class="work-link">
+              <div class="work-thumb-wrapper">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1000&q=80" alt="Animation Project" class="work-thumb" loading="lazy">
+                <div class="work-thumb-overlay"></div>
+              </div>
+              <div class="work-info">
+                <h3 class="work-title">Animation</h3>
+                <span class="work-category">CM etc.</span>
+              </div>
+            </a>
+          </article>
+
+          <!-- Sprocket 4 -->
+          <div class="film-sprocket">
+            <svg width="20" height="150" viewBox="0 0 20 150" fill="none">
+              <rect x="2" y="10" width="16" height="24" rx="3" fill="#222" />
+              <rect x="2" y="63" width="16" height="24" rx="3" fill="#222" />
+              <rect x="2" y="116" width="16" height="24" rx="3" fill="#222" />
+            </svg>
+          </div>
+
+          <!-- Project 5: Design (design.html へリンク) -->
+          <article class="work-item reveal-el">
+            <a href="design.html" class="work-link">
+              <div class="work-thumb-wrapper">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80" alt="Design Project" class="work-thumb" loading="lazy">
+                <div class="work-thumb-overlay"></div>
+              </div>
+              <div class="work-info">
+                <h3 class="work-title">Design</h3>
+                <span class="work-category">Logo・Editorial Design</span>
               </div>
             </a>
           </article>
