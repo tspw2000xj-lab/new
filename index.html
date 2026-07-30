@@ -802,7 +802,7 @@
           </div>
 
           <!-- Project 1: Movie -->
-          <article class="work-item reveal-el">
+          <article class="work-item">
             <a href="movie.html" class="work-link">
               <div class="work-thumb-wrapper">
                 <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1000&q=80" alt="Movie Project" class="work-thumb" loading="lazy">
@@ -825,7 +825,7 @@
           </div>
 
           <!-- Project 2: Drone Photography -->
-          <article class="work-item reveal-el">
+          <article class="work-item">
             <a href="drone.html" class="work-link">
               <div class="work-thumb-wrapper">
                 <img src="images/dji-air3.jpg" alt="DJI Air 3" class="work-thumb" loading="lazy">
@@ -848,7 +848,7 @@
           </div>
 
           <!-- Project 3: Live Stream -->
-          <article class="work-item reveal-el">
+          <article class="work-item">
             <a href="livestream.html" class="work-link">
               <div class="work-thumb-wrapper">
                 <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80" alt="Live Stream Project" class="work-thumb" loading="lazy">
@@ -871,7 +871,7 @@
           </div>
 
           <!-- Project 4: Animation -->
-          <article class="work-item reveal-el">
+          <article class="work-item">
             <a href="animation.html" class="work-link">
               <div class="work-thumb-wrapper">
                 <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1000&q=80" alt="Animation Project" class="work-thumb" loading="lazy">
@@ -894,7 +894,7 @@
           </div>
 
           <!-- Project 5: Design -->
-          <article class="work-item reveal-el">
+          <article class="work-item">
             <a href="design.html" class="work-link">
               <div class="work-thumb-wrapper">
                 <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80" alt="Design Project" class="work-thumb" loading="lazy">
@@ -946,7 +946,7 @@
       </div>
     </section>
 
-    <!-- 5. SKILLS SECTION (並び順変更：映像編集 -> 撮影 -> 配信 -> アニメーション -> デザイン) -->
+    <!-- 5. SKILLS SECTION -->
     <section class="skills-section" id="skills">
       <div class="skills-header reveal-el">
         <h2 class="section-title-en">Skills</h2>
@@ -1218,18 +1218,58 @@
       requestAnimationFrame(animateParticles);
 
       /* ==========================================
-         D. Filmstrip Horizontal Scroll & Drag 
+         D. Filmstrip Auto Scroll, Drag & Hover Control 
          ========================================== */
       const filmstrip = document.getElementById('filmstripContainer');
       let isDown = false;
       let isDragging = false;
       let startX;
       let scrollLeft;
+      
+      let isHovered = false;
+      
+      // スクロール速度（0.3に設定）
+      const autoScrollSpeed = 0.3; 
+      
+      // 小数を保持するための内部変数
+      let currentScrollPos = filmstrip.scrollLeft;
 
+      function stepAutoScroll() {
+        if (!isHovered && !isDown) {
+          const maxScrollLeft = filmstrip.scrollWidth - filmstrip.clientWidth;
+
+          // ドラッグやホイール操作で手動スクロールされた場合に位置を同期
+          if (Math.abs(filmstrip.scrollLeft - currentScrollPos) > 2) {
+            currentScrollPos = filmstrip.scrollLeft;
+          }
+
+          if (currentScrollPos < maxScrollLeft - 1) {
+            currentScrollPos += autoScrollSpeed;
+            filmstrip.scrollLeft = currentScrollPos;
+          }
+        } else {
+          // ホバーやドラッグ中は現在の実際のスクロール位置を同期
+          currentScrollPos = filmstrip.scrollLeft;
+        }
+        requestAnimationFrame(stepAutoScroll);
+      }
+      requestAnimationFrame(stepAutoScroll);
+
+      // ホバー・タッチで自動スクロールを一時停止
+      filmstrip.addEventListener('mouseenter', () => { isHovered = true; });
+      filmstrip.addEventListener('mouseleave', () => { 
+        isHovered = false;
+        isDown = false; 
+      });
+      filmstrip.addEventListener('touchstart', () => { isHovered = true; }, { passive: true });
+      filmstrip.addEventListener('touchend', () => { isHovered = false; });
+
+      // 手動ドラッグ・ホイール操作
       filmstrip.addEventListener('wheel', (e) => {
         if (e.deltaY !== 0) {
           e.preventDefault();
           filmstrip.scrollLeft += e.deltaY;
+          currentScrollPos = filmstrip.scrollLeft;
         }
       }, { passive: false });
 
@@ -1240,7 +1280,6 @@
         scrollLeft = filmstrip.scrollLeft;
       });
 
-      filmstrip.addEventListener('mouseleave', () => { isDown = false; });
       filmstrip.addEventListener('mouseup', () => { isDown = false; });
 
       filmstrip.addEventListener('mousemove', (e) => {
@@ -1253,6 +1292,7 @@
           isDragging = true;
         }
         filmstrip.scrollLeft = scrollLeft - walk;
+        currentScrollPos = filmstrip.scrollLeft;
       });
 
       document.querySelectorAll('.work-link').forEach(link => {
