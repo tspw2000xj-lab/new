@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Live Stream Works — Tomohiro Shiratori</title>
+  <title>Live Stream Works — Studio ORIGAMI</title>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,12 +12,12 @@
 
   <style>
     :root {
-      --bg-main: #0c0c0c;
-      --bg-sub: #141414;
+      --bg-main: #2D3F49;
+      --bg-sub: #263039;
       --text-dark-bg: #ede8df;
-      --text-muted: #6b6560;
-      --accent: #e07a30;
-      --accent-sub: #c9973a;
+      --text-muted: #7E8A90;
+      --accent: #E60012;
+      --accent-sub: #FF6672;
       
       --font-en: 'Inter', sans-serif;
       --font-ja: 'Noto Sans JP', sans-serif;
@@ -63,7 +63,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: rgba(12, 12, 12, 0.85);
+      background-color: rgba(45, 63, 73, 0.85);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -90,7 +90,7 @@
     }
 
     .back-link:hover {
-      color: var(--accent);
+      color: var(--accent-sub);
     }
 
     /* CONTAINER & PAGE HEADER */
@@ -110,7 +110,7 @@
       font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--accent-sub);
       margin-bottom: 0.5rem;
       display: block;
     }
@@ -198,7 +198,7 @@
 
     .video-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(224, 122, 48, 0.4);
+      border-color: rgba(230, 0, 18, 0.4);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     }
 
@@ -244,7 +244,7 @@
       align-items: center;
       justify-content: center;
       color: #fff;
-      box-shadow: 0 4px 15px rgba(224, 122, 48, 0.4);
+      box-shadow: 0 4px 15px rgba(230, 0, 18, 0.4);
       transition: transform 0.3s ease;
     }
 
@@ -280,27 +280,12 @@
       line-height: 1.5;
     }
 
-    /* FOOTER */
-    .site-footer {
-      background-color: #0a0a0a;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      text-align: center;
-      padding: 2.5rem 0;
-      margin-top: 6rem;
-    }
-
-    .footer-copy {
-      font-family: var(--font-en);
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      letter-spacing: 0.08em;
-    }
   </style>
 </head>
 <body>
 
   <header class="site-header">
-    <a href="index.html" class="header-logo">Tomohiro Shiratori</a>
+    <a href="index.html" class="header-logo">Studio ORIGAMI</a>
     <a href="index.html#works" class="back-link">&larr; Back to Works</a>
   </header>
 
@@ -382,10 +367,6 @@
       </div>
     </section>
   </main>
-
-  <footer class="site-footer">
-    <div class="footer-copy">&copy; 2026 Tomohiro Shiratori</div>
-  </footer>
 
   <script>
     function switchVideo(videoId, title, description) {
