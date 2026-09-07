@@ -466,6 +466,118 @@
     }
 
     /* ==========================================
+       4.5. PROFILE SECTION
+       ========================================== */
+    .profile-section {
+      background-color: var(--paper);
+      color: var(--ink);
+      padding: 8rem 8vw;
+    }
+
+    .profile-header {
+      margin-bottom: 3rem;
+    }
+
+    .section-label {
+      display: block;
+      font-family: var(--font-en);
+      font-size: 0.85rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .profile-name-en {
+      font-family: var(--font-en);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+
+    .profile-name-ja {
+      margin-top: 0.6rem;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      color: var(--ink-soft);
+    }
+
+    .profile-role {
+      margin-top: 1.2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      color: var(--ink-soft);
+    }
+
+    .profile-lead {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--ink-soft);
+      margin-bottom: 2.2rem;
+    }
+
+    .profile-timeline {
+      list-style: none;
+    }
+
+    .timeline-item {
+      padding: 1.3rem 0;
+      border-bottom: 1px solid rgba(45, 63, 73, 0.12);
+    }
+
+    .timeline-period {
+      display: block;
+      font-family: var(--font-en);
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-org {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .timeline-role {
+      margin-top: 0.3rem;
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+    }
+
+    .profile-tags-block {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(45, 63, 73, 0.2);
+    }
+
+    .profile-tags-label {
+      font-family: var(--font-en);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .profile-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    /* ==========================================
        5. SKILLS SECTION
        ========================================== */
     .skills-section {
@@ -632,6 +744,15 @@
       .film-sprocket {
         width: 20px;
       }
+
+      .profile-section {
+        padding: 5rem 6vw;
+      }
+
+      .profile-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -693,6 +814,7 @@
     <nav>
       <ul class="nav-list" id="navList">
         <li><a href="#works" class="nav-link">Works</a></li>
+        <li><a href="#profile" class="nav-link">Profile</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
@@ -850,6 +972,58 @@
             </svg>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- 3.5. PROFILE SECTION -->
+    <section class="profile-section" id="profile">
+      <div class="profile-header reveal-el">
+        <h2 class="section-title-en">Profile</h2>
+      </div>
+
+      <div class="profile-grid">
+        <div class="profile-name-block reveal-el">
+          <p class="profile-name-en font-en">Tomohiro Shiratori</p>
+          <p class="profile-name-ja">白鳥 友裕 ／ Studio ORIGAMI</p>
+          <p class="profile-role">Freelance Director / Editor — Based in Shizuoka</p>
+        </div>
+
+        <div class="profile-body reveal-el">
+          <p class="profile-lead">
+            静岡を拠点に23年間、映像とデザインの仕事に携わってきました。<br>
+            2007年からはチーフとして5名のスタッフをまとめる経験も積みました。<br>
+            2013年に株式会社SBSメディアビジョンへ入社してからは放送・映像の仕事に取り組み、番組CG・テロップ制作、ライブ配信の技術設計から現場運用、Jリーグ・プロ野球の大型ビジョンオペレーション、ドローンによる空撮まで幅広く担当。<br>
+            フリーランスとして、この経験をそのままワンストップでご提供します。
+          </p>
+
+          <ul class="profile-timeline">
+            <li class="timeline-item">
+              <span class="timeline-period font-en">2013.03 - 2026.07</span>
+              <p class="timeline-org">株式会社SBSメディアビジョン</p>
+              <p class="timeline-role">番組CG・テロップ制作、ライブ配信の技術設計・運用、大型ビジョンオペレーションなどを担当</p>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-period font-en">2003.04 - 2013.01</span>
+              <p class="timeline-org">株式会社タウンアップ</p>
+              <p class="timeline-role">2007年からチーフとして5名のスタッフをまとめながら、雑誌の誌面・表紙デザイン、アプリの開発・デザイン、イベントPVの企画・制作などを担当</p>
+            </li>
+          </ul>
+
+          <div class="profile-tags-block">
+            <p class="profile-tags-label">Specialties — 得意分野</p>
+            <div class="profile-tags">
+              <span class="work-category">撮影・編集</span>
+              <span class="work-category">番組CG・テロップ</span>
+              <span class="work-category">ライブ配信</span>
+              <span class="work-category">ドローン空撮</span>
+              <span class="work-category">Jリーグ 大型ビジョン</span>
+              <span class="work-category">プロ野球 大型ビジョン</span>
+              <span class="work-category">雑誌・誌面デザイン</span>
+              <span class="work-category">アプリデザイン</span>
+              <span class="work-category">イベントPV企画</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
