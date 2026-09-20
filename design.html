@@ -206,18 +206,107 @@
       border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .card-number {
-      font-family: var(--font-en);
+    .card-title {
+      display: block;
+      font-size: 0.92rem;
       font-weight: 700;
       color: var(--text-dark-bg);
+      letter-spacing: 0.04em;
+      line-height: 1.5;
+    }
+
+    .card-meta {
+      display: block;
+      margin-top: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(10, 14, 17, 0.94);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 4rem 5vw 3rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .lightbox.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-img {
+      max-width: min(1100px, 92vw);
+      max-height: 76vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+    }
+
+    .lightbox-caption {
+      text-align: center;
+      max-width: 42rem;
+    }
+
+    .lightbox-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-dark-bg);
+      line-height: 1.6;
+    }
+
+    .lightbox-meta {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 5vw;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-en);
+      font-size: 2rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0.25rem 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .lightbox-close:hover {
+      color: var(--accent-sub);
+    }
+
+    @media (max-width: 600px) {
+      .lightbox { padding: 3.5rem 1rem 2rem; }
+      .lightbox-img { max-height: 66vh; }
     }
   </style>
 </head>
 <body>
 
   <header class="site-header">
-    <a href="index.html" class="header-logo">Studio ORIGAMI</a>
-    <a href="index.html#works" class="back-link">&larr; Back to Works</a>
+    <a href="index.html#works" class="back-link">&larr;Back</a>
   </header>
 
   <main class="page-container">
@@ -236,66 +325,106 @@
 
       <!-- Editorial Design (01〜04) -->
       <div class="card" data-category="editorial">
-        <div class="image-container"><img src="01.jpg" alt="01"></div>
-        <div class="card-info"><span class="card-number">01.jpg</span> - Editorial Design</div>
+        <div class="image-container"><img src="01.jpg" alt="ホール情報誌「でちゃう！」誌面デザイン"></div>
+        <div class="card-info"><span class="card-title">ホール情報誌「でちゃう！」</span><span class="card-meta">2013 ／ パチンコ・パチスロ情報誌<br>担当：表紙・誌面デザイン</span></div>
       </div>
       <div class="card" data-category="editorial">
-        <div class="image-container"><img src="02.jpg" alt="02"></div>
-        <div class="card-info"><span class="card-number">02.jpg</span> - Editorial Design</div>
+        <div class="image-container"><img src="02.jpg" alt="ホール情報誌「でちゃう！」誌面デザイン"></div>
+        <div class="card-info"><span class="card-title">ホール情報誌「でちゃう！」</span><span class="card-meta">2012 ／ パチンコ・パチスロ情報誌<br>担当：表紙・誌面デザイン</span></div>
       </div>
       <div class="card" data-category="editorial">
-        <div class="image-container"><img src="03.jpg" alt="03"></div>
-        <div class="card-info"><span class="card-number">03.jpg</span> - Editorial Design</div>
+        <div class="image-container"><img src="03.jpg" alt="ホール情報誌「でちゃう！」誌面デザイン"></div>
+        <div class="card-info"><span class="card-title">ホール情報誌「でちゃう！」</span><span class="card-meta">2010 ／ パチンコ・パチスロ情報誌<br>担当：表紙・誌面デザイン</span></div>
       </div>
       <div class="card" data-category="editorial">
-        <div class="image-container"><img src="04.jpg" alt="04"></div>
-        <div class="card-info"><span class="card-number">04.jpg</span> - Editorial Design</div>
+        <div class="image-container"><img src="04.jpg" alt="ホール情報誌「でちゃう！」誌面デザイン"></div>
+        <div class="card-info"><span class="card-title">ホール情報誌「でちゃう！」</span><span class="card-meta">2010 ／ パチンコ・パチスロ情報誌<br>担当：表紙・誌面デザイン</span></div>
       </div>
 
       <!-- Logo Design (05〜09) -->
       <div class="card" data-category="logo">
-        <div class="image-container"><img src="05.jpg" alt="05"></div>
-        <div class="card-info"><span class="card-number">05.jpg</span> - Logo Design</div>
+        <div class="image-container"><img src="05.jpg" alt="イベントロゴ"></div>
+        <div class="card-info"><span class="card-title">イベントロゴ</span><span class="card-meta">2009<br>担当：ロゴデザイン</span></div>
       </div>
       <div class="card" data-category="logo">
-        <div class="image-container"><img src="06.jpg" alt="06"></div>
-        <div class="card-info"><span class="card-number">06.jpg</span> - Logo Design</div>
+        <div class="image-container"><img src="06.jpg" alt="イベントロゴ"></div>
+        <div class="card-info"><span class="card-title">イベントロゴ</span><span class="card-meta">2008<br>担当：ロゴデザイン</span></div>
       </div>
       <div class="card" data-category="logo">
-        <div class="image-container"><img src="07.jpg" alt="07"></div>
-        <div class="card-info"><span class="card-number">07.jpg</span> - Logo Design</div>
+        <div class="image-container"><img src="07.jpg" alt="番組タイトルロゴ"></div>
+        <div class="card-info"><span class="card-title">番組タイトルロゴ</span><span class="card-meta">2020<br>担当：ロゴデザイン</span></div>
       </div>
       <div class="card" data-category="logo">
-        <div class="image-container"><img src="08.jpg" alt="08"></div>
-        <div class="card-info"><span class="card-number">08.jpg</span> - Logo Design</div>
+        <div class="image-container"><img src="08.jpg" alt="企画ロゴ"></div>
+        <div class="card-info"><span class="card-title">企画ロゴ</span><span class="card-meta">2018<br>担当：ロゴデザイン</span></div>
       </div>
       <div class="card" data-category="logo">
-        <div class="image-container"><img src="09.jpg" alt="09"></div>
-        <div class="card-info"><span class="card-number">09.jpg</span> - Logo Design</div>
+        <div class="image-container"><img src="09.jpg" alt="企画ロゴ"></div>
+        <div class="card-info"><span class="card-title">企画ロゴ</span><span class="card-meta">2017<br>担当：ロゴデザイン</span></div>
       </div>
 
       <!-- Character Design (panda_01〜04) -->
       <div class="card" data-category="character">
-        <div class="image-container"><img src="panda_01.jpg" alt="panda_01"></div>
-        <div class="card-info"><span class="card-number">panda_01.jpg</span> - Character Design</div>
+        <div class="image-container"><img src="panda_01.jpg" alt="日本平動物園 レッサーパンダ キャラクターデザイン"></div>
+        <div class="card-info"><span class="card-title">日本平動物園 レッサーパンダ キャラクター</span><span class="card-meta">キャラクター考案コンペ 最終選考<br>担当：キャラクターデザイン</span></div>
       </div>
       <div class="card" data-category="character">
-        <div class="image-container"><img src="panda_02.jpg" alt="panda_02"></div>
-        <div class="card-info"><span class="card-number">panda_02.jpg</span> - Character Design</div>
+        <div class="image-container"><img src="panda_02.jpg" alt="日本平動物園 レッサーパンダ キャラクターデザイン"></div>
+        <div class="card-info"><span class="card-title">日本平動物園 レッサーパンダ キャラクター</span><span class="card-meta">キャラクター考案コンペ 最終選考<br>担当：キャラクターデザイン</span></div>
       </div>
       <div class="card" data-category="character">
-        <div class="image-container"><img src="panda_03.jpg" alt="panda_03"></div>
-        <div class="card-info"><span class="card-number">panda_03.jpg</span> - Character Design</div>
+        <div class="image-container"><img src="panda_03.jpg" alt="日本平動物園 レッサーパンダ キャラクターデザイン"></div>
+        <div class="card-info"><span class="card-title">日本平動物園 レッサーパンダ キャラクター</span><span class="card-meta">キャラクター考案コンペ 最終選考<br>担当：キャラクターデザイン</span></div>
       </div>
       <div class="card" data-category="character">
-        <div class="image-container"><img src="panda_04.jpg" alt="panda_04"></div>
-        <div class="card-info"><span class="card-number">panda_04.jpg</span> - Character Design</div>
+        <div class="image-container"><img src="panda_04.jpg" alt="日本平動物園 レッサーパンダ キャラクターデザイン"></div>
+        <div class="card-info"><span class="card-title">日本平動物園 レッサーパンダ キャラクター</span><span class="card-meta">キャラクター考案コンペ 最終選考<br>担当：キャラクターデザイン</span></div>
       </div>
 
     </div>
   </main>
 
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="閉じる">&times;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption">
+      <p class="lightbox-title" id="lightboxTitle"></p>
+      <p class="lightbox-meta" id="lightboxMeta"></p>
+    </div>
+  </div>
+
   <script>
+    // 作品クリックで拡大表示
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+
+    function openLightbox(card) {
+      const img = card.querySelector('img');
+      lightboxImg.src = img.getAttribute('src');
+      lightboxImg.alt = img.getAttribute('alt') || '';
+      document.getElementById('lightboxTitle').textContent = card.querySelector('.card-title').textContent;
+      document.getElementById('lightboxMeta').innerHTML = card.querySelector('.card-meta').innerHTML;
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => openLightbox(card));
+    });
+
+    lightbox.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
     // カテゴリ切り替えフィルター処理
     function showCategory(category, e) {
       const buttons = document.querySelectorAll('.nav-link-btn');
