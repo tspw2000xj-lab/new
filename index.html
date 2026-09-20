@@ -24,6 +24,8 @@
       --text-muted: #7E8A90;
       --accent: #E60012;
       --accent-sub: #FF6672;
+      /* 濃い背景の上で使うブランド赤（明度を上げてコントラスト比5.5:1を確保） */
+      --accent-on-dark: #FF9E94;
       
       --font-en: 'Inter', sans-serif;
       --font-ja: 'Noto Sans JP', sans-serif;
@@ -431,6 +433,19 @@
       background: rgba(230, 0, 18, 0.1);
       padding: 0.2rem 0.5rem;
       border-radius: 3px;
+    }
+
+    /* 濃い背景のWorks内だけ、ブランド赤の明度を上げて可読性を確保する
+       （明るい背景のProfile側は従来のブランド赤のまま） */
+    .works-section .work-category {
+      color: var(--accent-on-dark);
+      background: rgba(255, 158, 148, 0.10);
+      border: 1px solid rgba(255, 158, 148, 0.22);
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      white-space: nowrap;
     }
 
     /* ==========================================
