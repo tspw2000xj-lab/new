@@ -792,6 +792,11 @@
 
     .nowrap { white-space: nowrap; }
 
+    /* 横幅が狭い画面では、決め打ちの改行を消して言葉の区切りで折り返す */
+    @media (max-width: 1100px) {
+      .pc-only { display: none; }
+    }
+
     @view-transition { navigation: auto; }
 
     /* ==========================================
@@ -1028,7 +1033,7 @@
             <li class="timeline-item">
               <span class="timeline-period font-en">2003.04 - 2013.01</span>
               <p class="timeline-org">株式会社タウンアップ</p>
-              <p class="timeline-role">2007年からチーフとして5名のスタッフをまとめながら、雑誌の誌面・表紙デザイン、<br>アプリの設計・開発、イベントPVの企画・制作などを担当</p>
+              <p class="timeline-role"><span class="nowrap">2007年からチーフとして</span><span class="nowrap">5名のスタッフをまとめながら、</span><span class="nowrap">雑誌の誌面・表紙デザイン、</span><br class="pc-only"><span class="nowrap">アプリの設計・開発、</span><span class="nowrap">イベントPVの企画・制作などを担当</span></p>
             </li>
           </ul>
 
