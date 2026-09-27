@@ -397,6 +397,12 @@
       gap: 2.25rem 1.75rem;
     }
 
+    .works-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 2.25rem 1.5rem;
+    }
+
     .work-item {
       user-select: none;
     }
@@ -836,7 +842,8 @@
       }
 
       .works-grid-2,
-      .works-grid-3 {
+      .works-grid-3,
+      .works-grid-4 {
         grid-template-columns: 1fr;
         gap: 1.75rem;
       }
@@ -852,6 +859,10 @@
     }
 
     @media (max-width: 900px) {
+      .works-grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .skills-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -935,6 +946,18 @@
       <div class="works-groups reveal-el">
         <div class="works-grid-2">
 
+          <!-- Project 0: TV On Air -->
+          <article class="work-item">
+            <a href="tvonair.html" class="work-link">
+              <div class="work-thumb-wrapper">
+                <img src="https://img.youtube.com/vi/nF8HHRFUaX0/maxresdefault.jpg" alt="しぞ〜か☆みんなの健康体操 のサムネイル" class="work-thumb" loading="lazy">
+              </div>
+              <div class="work-info">
+                <h3 class="work-title">TV On Air</h3>
+              </div>
+            </a>
+          </article>
+
           <!-- Project 1: Live Stream -->
           <article class="work-item">
             <a href="livestream.html" class="work-link">
@@ -947,6 +970,10 @@
             </a>
           </article>
 
+        </div>
+
+        <div class="works-grid-4">
+
           <!-- Project 2: Movie -->
           <article class="work-item">
             <a href="movie.html" class="work-link">
@@ -958,10 +985,6 @@
               </div>
             </a>
           </article>
-
-        </div>
-
-        <div class="works-grid-3">
 
           <!-- Project 3: Design -->
           <article class="work-item">
@@ -994,7 +1017,7 @@
                 <img src="https://img.youtube.com/vi/JmegDplcblQ/maxresdefault.jpg" alt="ドローン空撮" class="work-thumb" loading="lazy">
               </div>
               <div class="work-info">
-                <h3 class="work-title">Drone Photography</h3>
+                <h3 class="work-title">Drone</h3>
               </div>
             </a>
           </article>
